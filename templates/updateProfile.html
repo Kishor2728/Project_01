@@ -1,0 +1,57 @@
+
+
+{% extends 'homePage.html' %}
+{% block common %}
+    {% include 'studentMenu.html' %}
+    <table align="center" style="font-size: 25px;width: 600px">
+        <br>
+        <br>
+        <tr>
+            <th style="background-color: yellow">Update {{ name|capfirst }}'s Details</th>
+        </tr>
+    </table>
+    <form action="{% url 'profileUpdated' %}" method="post">
+        {% csrf_token %}
+        <table align="center" style="font-weight: bold">
+            <br>
+            <tr>
+                <td style="padding-left: 37px">
+                    Name :<input type="text" name="name" value="{{ Data.name }}">
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left: 50px">
+                    Age :<input type="text" name="age" value="{{ Data.age }}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Contact No :<input type="text" name="contact" value="{{ Data.contact }}">
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left: 25px">
+                    Gender
+                    <input type="radio" checked name="gender" value="Male">Male
+                    <input type="radio" name="gender" value="Female">Female
+                    <input type="radio" name="gender" value="Others">Others
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left: 60px">
+                    <input type="hidden" name="username" value="{{ Data.username }}">
+                </td>
+            </tr>
+            <tr>
+                <th><br>
+                    <button type="submit">Update</button>
+                </th>
+            </tr>
+            {% for x in messages %}
+                <tr>
+                <th style="color: red;">{{ x }}</th>
+                </tr>
+            {% endfor %}
+        </table>
+    </form>
+{% endblock %}

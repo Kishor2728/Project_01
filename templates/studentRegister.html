@@ -1,0 +1,63 @@
+{% extends 'homePage.html' %}
+{% load static %}
+
+{% block common %}
+    {% include 'mainMenu.html' %}
+    <form action="{% url 'studentRegistered' %}" method="post">
+    {% csrf_token %}
+    <table align="center" style="font-size: 18px;font-weight: bold">
+        <br>
+        <br>
+        <tr>
+            <td colspan="2" style="font-size: 25px;background-color: yellow">
+                Student Registration Page
+            </td>
+        </tr>
+        <tr>
+            <td><br>
+                <input type="text" required name="a1" placeholder="Name of Student">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="number" required name="a2" min="6" max="60" placeholder="Age">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="number" required name="a3" placeholder="Contact Number ">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Gender :
+                <input type="radio" checked name="a4" value="Male">Male
+                <input type="radio" checked name="a4" value="Female">Female
+                <input type="radio" checked name="a4" value="Others">Others
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Username :<input type="text" required name="a5">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Password &nbsp;:<input type="password" required name="a6">
+            </td>
+        </tr>
+        <tr>
+            <th><br>
+                <button type="submit" style="font-weight: bold">Register</button>
+            </th>
+        </tr>
+        {% if Message %}
+        <tr>
+            <th>
+                {{ Message }}
+            </th>
+        </tr>
+        {% endif %}
+    </table>
+    </form>
+{% endblock %}

@@ -1,0 +1,47 @@
+
+
+{% extends 'homePage.html' %}
+{% load static %}
+{% block common %}
+    {% include 'adminMenu.html' %}
+    <table align="center" border="2" bgcolor="white">
+        <br>
+        <br>
+        <tr>
+            <th style="background-color: orangered;font-size: 20px">Student Id</th>
+            <th style="background-color: orangered;font-size: 20px">Student Name</th>
+            <th style="background-color: orangered;font-size: 20px">Student Age</th>
+            <th style="background-color: orangered;font-size: 20px">Student Contact no</th>
+            <th style="background-color: orangered;font-size: 20px">Student Gender</th>
+            <th style="background-color: orangered;font-size: 20px">Username</th>
+            <th style="background-color: orangered;font-size: 20px">Delete User</th>
+        </tr>
+        {% for x in Data %}
+            <tr>
+                <th>{{ x.id }}</th>
+                <th>{{ x.name }}</th>
+                <th>{{ x.age }}</th>
+                <th>{{ x.contact }}</th>
+                <th>{{ x.gender }}</th>
+                <th>{{ x.username }}</th>
+                <th>
+                    <a href="{% url 'delete' %}?user={{ x.username }}">
+                        <button type="submit">Delete</button>
+                    </a>
+                </th>
+            </tr>
+        {% endfor %}
+    </table>
+    {% if Message %}
+        <table align="center" >
+        <br>
+        <br>
+        <br>
+            <tr>
+                <th colspan="6" style="font-size: 20px;font-family: Verdana">
+                    {{ Message }}
+                </th>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock %}

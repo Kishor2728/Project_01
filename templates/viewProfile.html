@@ -1,0 +1,33 @@
+
+
+{% extends 'homePage.html' %}
+{% load static %}
+
+{% block common %}
+    {% include 'studentMenu.html' %}
+    <table align="center" style="font-size: 25px;width: 600px">
+        <br>
+        <br>
+        <tr>
+            <th style="background-color: yellow">Student {{ name|capfirst }}'s Details</th>
+        </tr>
+    </table>
+
+    <table align="center" style="font-size: 20px" border="2">
+        <br>
+        <tr>
+            <th>Student Id</th>
+            <th>Student Name</th>
+            <th>Student Age</th>
+            <th>Contact No</th>
+            <th>Gender</th>
+        </tr>
+        <tr>
+            <th>{{ Data.id }}</th>
+            <th>{{ Data.name }}</th>
+            <th>{{ Data.age }}</th>
+            <th>{{ Data.contact }}</th>
+            <th>{{ Data.gender }}</th>
+        </tr>
+    </table>
+{% endblock %}

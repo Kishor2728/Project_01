@@ -1,0 +1,29 @@
+
+
+{% extends 'homePage.html' %}
+{% load static %}
+{% block common %}
+    {% include 'adminMenu.html' %}
+    <table align="center" border="2" bgcolor="white">
+        <br>
+        <br>
+        <tr>
+            <th style="background-color: orangered;font-size: 20px">Student Id</th>
+            <th style="background-color: orangered;font-size: 20px">Student Name</th>
+            <th style="background-color: orangered;font-size: 20px">Student Age</th>
+            <th style="background-color: orangered;font-size: 20px">Student Contact no</th>
+            <th style="background-color: orangered;font-size: 20px">Student Gender</th>
+            <th style="background-color: orangered;font-size: 20px">Username</th>
+        </tr>
+        {% for x in Data %}
+            <tr>
+                <th>{{ x.id }}</th>
+                <th>{{ x.name }}</th>
+                <th>{{ x.age }}</th>
+                <th>{{ x.contact }}</th>
+                <th>{{ x.gender }}</th>
+                <th>{{ x.username }}</th>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

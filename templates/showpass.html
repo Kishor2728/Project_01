@@ -1,0 +1,17 @@
+
+
+{% extends 'homePage.html' %}
+{% block common %}
+    {% include 'mainMenu.html' %}
+    <table align="center">
+    <br>
+    <br>
+    <br>
+    <br>
+    {% if Password %}
+    <tr>
+        <th style="font-size: 25px;background-color: yellow;font-family: Verdana">Hello {{ Name|capfirst }} your password is : {{ Password }}</th>
+    </tr>
+    {% endif %}
+    </table>
+{% endblock %}

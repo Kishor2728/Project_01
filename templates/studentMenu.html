@@ -1,0 +1,25 @@
+<html>
+<style>
+    .nav-link {
+        margin: 20px;
+    }
+</style>
+<body>
+<table align="center">
+    <tr>
+        <th style="font-size: 20px"><br>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="collapse navbar-collapse" id="navbarNav"
+                     style="background-color: yellow;padding-bottom: 10px;padding-top: 10px;width: 1350px">
+                    <a class="nav-link" href="{% url 'Homeindex' %}">Home</a>
+                    <a class="nav-link" href="{% url 'studentHomePage' %}?user={{ name }}">{{ name|capfirst }}</a>
+                    <a class="nav-link" href="{% url 'viewProfile' %}?user={{ name }}">View Profile</a>
+                    <a class="nav-link" href="{% url 'updateProfile' %}?user={{ name }}">Update Profile</a>
+                    <a class="nav-link" href="{% url 'studentLogin' %}">Logout</a>
+                </div>
+            </nav>
+        </th>
+    </tr>
+</table>
+</body>
+</html>
